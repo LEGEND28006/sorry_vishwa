@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Envelope Apology — Interactive</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="wrap" aria-live="polite">
+    <!-- Stage -->
+    <section class="center" id="stage">
+      <!-- Closed envelope -->
+      <button id="envelopeBtn" class="envelope" aria-label="Open the envelope">
+        <svg viewBox="0 0 200 120" class="env-svg" aria-hidden="true">
+          <!-- envelope base -->
+          <rect x="6" y="18" rx="10" ry="10" width="188" height="84" fill="#fff6fb" stroke="#ffd5e0" />
+          <!-- flap (we'll animate its rotation) -->
+          <g id="flap" transform-origin="100px 18px">
+            <polygon points="10,18 100,64 190,18" fill="#ffeef4" stroke="#ffd5e0"/>
+          </g>
+          <!-- heart seal -->
+          <circle cx="100" cy="72" r="10" fill="#ffb6c1" />
+          <path d="M95 70 q5 8 10 0 q-5 -6 -10 0" fill="#ff98b3"/>
+        </svg>
+      </button>
+
+      <!-- Letter (hidden initially) -->
+      <div id="letterCard" class="letter hidden" role="dialog" aria-hidden="true">
+        <div class="letter-sheet">
+          <h2 class="hand">vishwa — I need to say something</h2>
+          <p id="apologyText">Vishwa  mne khbr che me past ma bau bdhi mistakes kri che , mne tari bdhi khbr che , tu ketlo vishwas kre mari pr and tne kai vstu gme che andd kai vastu nai gmti , te past ma mari mate bau bdhu kre lu che and i know meh tara jetlu nai kryu tari mate pn me pn bdha try krya che , mne khbr che meh  bhul kri che , maru dhyan and attention biji baju divert thyai gyu tu and mne yad che te mne pelaj kidhu htu ke hu pachtais and tu 100% sachi j hti  aa topic pr and hu 100% wrong chu . evu nthi me tne consider nai kri ne bija bdha ne cosider krya che , me tne mara krta pn vadharer priority api che , mari family ma meh aaj sudhi koi firend ne introduce nai kri accept you , mari akhi family tne odhkhe che and emne ae pn khbr che hu tari jode vat kru chu and tu mari bau sari friend che . i never care what other said about you , mne khbr che tu su che mari mate . aa website ma me bdhu jate kryu che , kai pn help nai lidhi koi pn AI tool ni , mari pela ni bdhi website ma mai ai , chatgpt ni help lidhi che , pn aa first web page che jema me bdhu jate kryu che,i know tne mara lidhe hurt thyu che mara actions tne nai gmya but seriously me kadi mari fake side tne nai btadi hu always tara mate  real ryo chu , i know te tari id tari friend ne aapi che jova mate and ene bdhu khbr che tara and mara vise and ene tne mara vise bau kidhu hse hu ketlo khrab chu ne hu tara layak nthi ne , me kadi tari value nai kri ae bdhu pn , tu khud ek var santi thi ankho band kri ne santi thi vichar tu mature che tu khud vichari sake che to koi ni vato ma avya vgr ek var tu khud vichari ne jo me kadi tara jode kai khotu kryu che ? tne kadi mari jode uncomfotable lagyu che ? , apde 2 pela ekla jode bunk marta and masti krta pn tne kyare evu feel thyu ke hu tne use kru chu ? , maro jo evo intension hot to hu tne kadi sorry na bolto hot jo mare khali tne use j krvi hot to mne tara thi kai farak pan na pdto hot but evu nthi mne tara ek ek eye contact and ek ek vat thi pn frk pade che and ik tne bdha ae bau khotu kidhu che mara vise pn tu ek var khud vichari ne jo , tne kai thaay to  hu tari ben ne puchu , tu km aam kre ?  because hu tari ben ne kau to ae taru dhyan rakhi sake jo mne fher na pdto hot to su kaam hu aam krto hsu tne ek sathe atla bdha msg kru tu jyare marathi naraj hoy che atle , please viswa mne maaf kri de me tara jode je kai pn kryu che ae bdhu mne khbr che , sorry vihswa mne ek var maaf kri de , mne last time ek chance api de taro friend banvano hu tne  pachi frithi naraj nai thva dau , hve mne kai frk nai pdto kon su bole mara vise and hve mne biji koi chokri thi frk nai pdto bdhi chokario same j hoy che bs tu mara mate alg che te kadi mari mate kai khrab nai vicharyu , atlu thya pchi pn . to please vishwa mne maaf kri de and ek last chance api de hu tne 100% naraj thvano ek moko nai aapis please vishwa i am really sorry , last chance aapi de please</p>
+
+          <div class="controls-row">
+            <button id="nextBtn" class="btn primary">Next ➡</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MCQ -->
+      <div id="questionCard" class="card hidden" aria-hidden="true">
+        <h3>For final apology please answer the given question  </h3>
+        <p class="question">Whome do I trust 100% in college?</p>
+        <div class="opts">
+          <button class="opt" data-correct="false">Option A: diya</button>
+          <button class="opt" data-correct="true">Option B: vishwaaaa </button>
+          <button class="opt" data-correct="false">Option C: krisha patel</button>
+          <button class="opt" data-correct="false">Option D: dhruvi </button>
+        </div>
+        <p id="tryMsg" class="trymsg" aria-live="polite"></p>
+      </div>
+
+      <!-- Final apology -->
+      <div id="finalCard" class="card hidden" aria-hidden="true">
+        <h3>Final Apology</h3>
+        <p class="apology-final">Please forgive me vishwa hu tne hve ek moko nai aapu naraj thvano just give me one last chance koi ni vato ma aay vgr , koi ni vat pr dhyan apya vgr tu khud vichar tu 18+ che tne bdhi khbr pde j che so please koi ne kidha vgr tu khud pela decide kr mne ek last chance apvo ke nai please vishwa please ek last chance aapi de mne mari bhul sudharvano , please ek last chance please ...... </p>
+        <div class="controls-row">
+          <button id="forgiveBtn" class="btn primary">Forgive Me?</button>
+        </div>
+      </div>
+
+      <!-- Thank you message -->
+      <div id="thanksCard" class="card hidden" aria-hidden="true">
+        <h2>Thank you so much vishwadiiii ❤️</h2>
+        <p>I know u r my veryyyy good friend. tu joje hu hve tne ek pn chance nai aapu naraj thvano agd jai ne akhi life ma , thank you soo muchhhh for last chance , i will not disappointment you , hu tne taro decison sacho che ae btadis j , bdha ne je kevu hoy ae bole tu joi leje hu tne bilkul naraj nai thva dau thank you so muchhhhhhhhhhhhh </p>
+      </div>
+    </section>
+  </main>
+  <audio id="bgMusic" loop>
+  <source src="Stephen Sanchez - Until I Found You (Official Video) (1).mp3" type="audio/mpeg">
+</audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
